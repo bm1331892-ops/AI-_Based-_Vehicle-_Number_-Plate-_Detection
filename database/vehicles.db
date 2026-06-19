@@ -1,0 +1,28 @@
+import sqlite3
+
+conn = sqlite3.connect('database/vehicles.db')
+
+cursor = conn.cursor()
+
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS vehicles (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    vehicle_number TEXT,
+    vehicle_type TEXT,
+    color TEXT,
+    image_path TEXT,
+    detection_time TEXT
+)
+''')
+
+cursor.execute('''
+INSERT INTO vehicles
+(vehicle_number, vehicle_type, color, image_path, detection_time)
+VALUES
+('TN09AB1234', 'Car', 'White', 'car.jpg', '2025-06-10')
+''')
+
+conn.commit()
+conn.close()
+
+print("Database Created Successfully")

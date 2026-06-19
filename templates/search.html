@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Search Vehicle</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Search Vehicle</h2>
+
+<form method="POST">
+
+<input
+type="text"
+name="vehicle_number"
+placeholder="Enter Vehicle Number"
+required>
+
+<button type="submit">
+Search
+</button>
+
+</form>
+
+{% if vehicle %}
+
+<hr><br>
+
+<p><b>Vehicle Number:</b>
+{{ vehicle[0] }}</p>
+
+<p><b>Vehicle Type:</b>
+{{ vehicle[1] }}</p>
+
+<p><b>Color:</b>
+{{ vehicle[2] }}</p>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
